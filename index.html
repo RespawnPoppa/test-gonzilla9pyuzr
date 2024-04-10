@@ -10,6 +10,7 @@
 
     <body style="margin: 0; overflow: hidden;">
         <a-scene
+            maxFPS="60"
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
             renderer="logarithmicDepthBuffer: true;"
@@ -25,6 +26,7 @@
                 ></a-asset-item>
             </a-assets>
 
+            <!--Marcador-->
             <a-marker
                 id="animated-marker"
                 type="pattern"
@@ -37,12 +39,26 @@
             >
                 <a-entity
                     id="bowser-model"
-                    scale="0.16402344748577755 0.16402344748577755 0.16402344748577755"
+                    scale="0.4 0.4 0.4"
+                    position="0 1 1"
+                    rotation="-45 0 0"
                     animation-mixer="clip: run"
                     gltf-model="#animated-asset"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
+                
+                <!-- Cartel Holo (el align esta en rojo pero sirve gracias a diosito que todo lo puede)-->
+                <a-text
+                    value="T-Rex"
+                    color="#00FFFF"
+                    scale="2 2 2"
+                    position="0 3.5 0"
+                    rotation="-45 0 0"
+                    material="shader: flat; side: double; transparent: true; opacity: 0.6;"
+                    geometry="primitive: plane; width: 1; height: .5; "
+                    align="center"
+                ></a-text>
             </a-marker>
 
             <a-entity camera></a-entity>
